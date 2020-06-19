@@ -23,9 +23,6 @@ config/icon="res://icon.png"
 
 GameState="*res://process/game_state.gd"
 Service="*res://process/service.gd"
-UserData="*res://addons/github-integration/scripts/user_data.gd"
-IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
-RestHandler="*res://addons/github-integration/scripts/RestHandler.gd"
 
 [display]
 
@@ -37,10 +34,6 @@ window/dpi/allow_hidpi=true
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
-
-[editor_plugins]
-
-enabled=PoolStringArray( "github-integration" )
 
 [rendering]
 

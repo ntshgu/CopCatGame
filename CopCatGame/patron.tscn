@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://graphics/bullets/patron/pulka.png" type="Texture" id=1]
+[ext_resource path="res://patron.gd" type="Script" id=2]
+
+[node name="patron" type="Sprite"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

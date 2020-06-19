@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://timerBomus.gd" type="Script" id=1]
+
+[node name="BonusSpawner" type="Timer"]
+autostart = true
+script = ExtResource( 1 )
