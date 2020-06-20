@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://graphics/env/level_1/asphalts.png" type="Texture" id=1]
+[ext_resource path="res://graphics/env/level_1/asphalts_2.png" type="Texture" id=1]
 [ext_resource path="res://road.gd" type="Script" id=2]
+[ext_resource path="res://Pit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://graphics/env/level_1/BrickWall_1.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 3000 )
@@ -28,3 +30,17 @@ position = Vector2( -850, 0 )
 [node name="right_border" type="CollisionShape2D" parent="borders"]
 position = Vector2( 1720, -2048 )
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="borders/right_border"]
+visible = false
+position = Vector2( -1790.02, 150.844 )
+scale = Vector2( 7, 7 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="left_border" type="CollisionShape2D" parent="borders"]
+position = Vector2( 0, -2048 )
+shape = SubResource( 1 )
+
+[node name="Pit" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6.40283, -5573.48 )

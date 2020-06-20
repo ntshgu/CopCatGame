@@ -13,3 +13,4 @@ func _ready():
 
 func _on_timeout():
 	get_parent().double_points(0)
+	#get_node("../UI/Bonuses/double_points").set_texture(0)

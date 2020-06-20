@@ -9,15 +9,18 @@ const bullets_patron = preload("res://patron.tscn")
 const reload_time = 0.2
 var reloading = 0.0
 var speedTaken = false
+var doubleTaken = false
 var standSpeed = run_speed
 onready var SBT = get_node("../player/SpeedBonusTimer")
 onready var DBT = get_node("../player/DoubleBonusTimer")
 var scoreModifire = 1
 var stanSM = scoreModifire
-var doubleTaken = false
+
 
 func _ready():
 	GameState.PlayerCharacter = self
+	GameState.ScoreModifire = scoreModifire
+	GameState.defaultSM = stanSM
 
 
 func _process(delta):
@@ -63,25 +66,40 @@ func double_speed(mode):
 		speedTaken = true
 		run_speed *= 2
 		SBT.start()
+		print("Get fast")
 	elif((mode == 1) and (speedTaken == true)):
-		get_node("../UI/Counter/Timer").set_point(50 * scoreModifire)
-		print("scrPlus = 50 * ", scoreModifire)
+		var plusScore = 50 * GameState.get_SM()
+		get_node("../UI/Counter/Timer").set_point(plusScore)
+		print("Added points: ", plusScore)
+		#get_node("../UI/Counter/Timer").set_point(50 * GameState.get_SM())
+		#print("scrPlus = 50 * ", scoreModifire)
 		#get_node("../UI/Counter/Timer").set_point(50)
 	else:
 		print("Get slow")
 		run_speed = standSpeed
 		speedTaken = false
-	print("Speed is ", run_speed)
+	#print("Speed is ", run_speed)
 	
 func double_points(mode):
 	if(mode == 1):
-		scoreModifire *= 2
+		#scoreModifire *= 2
+		GameState.double_SM()
 		if(doubleTaken == false):
 			doubleTaken = true
 			DBT.start()
+			#get_node("../UI/Bonuses/double_points").set_texture(load("res://graphics/ui/double_points_UI.png"))
+		print("Halyava")
 	else:
-		scoreModifire = stanSM
+		#scoreModifire = stanSM
+		GameState.reset_SM()
 		doubleTaken = false
+		print("End of halyava")
+	
 
-func get_SM():
-	return scoreModifire
+#func get_SM():
+#	return scoreModifire
+
+#-------------Interaction---------------#
+
+func gf_hit(damage:int, damp:int=0): #damage, damp in range 0-100
+ print("Ooops, seems I got hit by ", damage, " and stack for ", damp)

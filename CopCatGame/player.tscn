@@ -39,7 +39,7 @@ script = ExtResource( 18 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "run"
-frame = 1
+frame = 5
 playing = true
 offset = Vector2( 0, -280 )
 
@@ -58,4 +58,5 @@ wait_time = 10.0
 script = ExtResource( 19 )
 
 [node name="DoubleBonusTimer" type="Timer" parent="."]
+wait_time = 15.0
 script = ExtResource( 20 )

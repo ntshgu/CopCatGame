@@ -1,7 +1,7 @@
 extends Node
 
 var player = load("res://player.tscn")
-var road = load("res://road.tscn")
+onready var road = load("res://road.tscn")
 var ui = load("res://UI.tscn")
 var bonusSpawner = load("res://BonusSpawner.tscn")
 

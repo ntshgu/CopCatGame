@@ -17,11 +17,14 @@ func _process(delta):
 func set_point(points):
 	score +=  points
 	counter.set_text(str(score))
-	print("score = " + counter.get_text())
+	#print("score = " + counter.get_text())
 
 func _on_timeout():
 	#set_point(1 * get_parent().get_node("../player").get_BM())
 	#var player = get_node("../player")
 	#set_point(1 * player.get_BM())
 	#var scoreModifire = get_path().get_node("/root/root/player")
-	set_point(1)
+		var plusScore = 1 * GameState.get_SM()
+		set_point(plusScore)
+		print("Added points: ", plusScore)
+	#set_point(1 * GameState.get_SM())

@@ -4,8 +4,8 @@ extends Area2D
 
 var bonusPictures = [
 	load("res://graphics/bonuses/minetki.png"),
-	load("res://graphics/bonuses/skorost.png")
-	#load("res://graphics/bonuses/double_points.png")
+	load("res://graphics/bonuses/skorost.png"),
+	load("res://graphics/bonuses/double_points.png")
 	]
 var bonusType:int
 #onready var bonusSprite = get_node("/root/Bonus/BonusSprite")
@@ -28,10 +28,15 @@ func set_bonus(bonus):
 
 
 func _on_Bonus_body_entered(body):
-	print("Shiny!")
 	if(bonusType == 0):
 		#get_node("../UI/Counter/Timer").set_point(100 * get_node("../player").get_BM())
-		get_node("../UI/Counter/Timer").set_point(100)
+		var plusScore = 100 * GameState.get_SM()
+		#get_node("../UI/Counter/Timer").set_point(100 * GameState.get_SM())
+		get_node("../UI/Counter/Timer").set_point(plusScore)
+		print("Shiny!")
+		print("Added points: ", plusScore)
 	elif(bonusType == 1):
 		get_node("../player").double_speed(1)
+	elif(bonusType == 2):
+		get_node("../player").double_points(1)
 	queue_free()
